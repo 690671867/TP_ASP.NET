@@ -12,10 +12,9 @@
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary()
+    @Html.ValidationSummary(true, "voici les erreurs")
 
-    
-    
+
     <fieldset>
         <legend>Formulaire d’inscription</legend>
         <ol>

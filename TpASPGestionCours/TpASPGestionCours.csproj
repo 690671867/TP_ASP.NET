@@ -171,14 +171,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\EF\GestionCours.Designer.cs">
+    <Compile Include="Models\EF\ModelContent.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GestionCours.edmx</DependentUpon>
+      <DependentUpon>ModelContent.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\EF\Professeur.cs" />
+    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\EF\Utilisateur.cs" />
+    <Compile Include="Models\EF\Professeur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -287,12 +287,12 @@
     <Content Include="Images\shirt3.gif" />
     <Content Include="Images\shirt4.gif" />
     <Content Include="Images\shirt5.gif" />
-    <EntityDeploy Include="Models\EF\GestionCours.edmx">
+    <EntityDeploy Include="Models\EF\ModelContent.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GestionCours.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelContent.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\EF\GestionCours.edmx.diagram">
-      <DependentUpon>GestionCours.edmx</DependentUpon>
+    <Content Include="Models\EF\ModelContent.edmx.diagram">
+      <DependentUpon>ModelContent.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="JS\js\bootstrap.js" />

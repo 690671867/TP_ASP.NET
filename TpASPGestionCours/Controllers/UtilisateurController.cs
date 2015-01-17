@@ -65,6 +65,19 @@ namespace TpASPGestionCours.Controllers
             }
             return View(pModel);
         }
+        public JsonResult verifierEmail(String Email, int Id)
+        {
+            Boolean isValid = true;//aller a la bd verifier si email deja avec un autre id que lui meme
+            if (isValid)
+            {
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json("error message ou object", JsonRequestBehavior.AllowGet);
+            }
+
+        }
 
         [HttpGet]
         public ActionResult Delete(int id)

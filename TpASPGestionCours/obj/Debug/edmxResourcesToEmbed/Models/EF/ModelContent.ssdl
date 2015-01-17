@@ -11,7 +11,8 @@
     <EntitySet Name="Professeurs" EntityType="GestionCoursModel.Store.Professeurs" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="TypesCategories" EntityType="GestionCoursModel.Store.TypesCategories" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Utilisateurs" EntityType="GestionCoursModel.Store.Utilisateurs" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="webpages_Roles" EntityType="GestionCoursModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Membership" EntityType="GestionCoursModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_OAuthMembership" EntityType="GestionCoursModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK__Categorie__Types__117F9D94" Association="GestionCoursModel.Store.FK__Categorie__Types__117F9D94">
       <End Role="TypesCategories" EntitySet="TypesCategories" />
       <End Role="Categories" EntitySet="Categories" />
@@ -134,6 +135,7 @@
     </Key>
     <Property Name="CoursId" Type="int" Nullable="false" />
     <Property Name="UtilisateurId" Type="int" Nullable="false" />
+    <Property Name="DateCreation" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="CoursImages">
     <Key>
@@ -173,12 +175,30 @@
     <Property Name="Tel" Type="nvarchar" MaxLength="50" />
     <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
-  <EntityType Name="webpages_Roles">
+  <EntityType Name="webpages_Membership">
     <Key>
-      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="UserId" />
     </Key>
-    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsConfirmed" Type="bit" />
+    <Property Name="LastPasswordFailureDate" Type="datetime" />
+    <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordChangedDate" Type="datetime" />
+    <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+    <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="webpages_OAuthMembership">
+    <Key>
+      <PropertyRef Name="Provider" />
+      <PropertyRef Name="ProviderUserId" />
+    </Key>
+    <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserId" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK__Categorie__Types__117F9D94">
     <End Role="TypesCategories" Type="GestionCoursModel.Store.TypesCategories" Multiplicity="1" />
