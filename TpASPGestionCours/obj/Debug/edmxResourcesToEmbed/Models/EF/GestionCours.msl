@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GestionCoursModelStoreContainer" CdmEntityContainer="GestionCoursEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="GestionCoursModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TypesCategorieId" ColumnName="TypesCategorieId" />
+          <ScalarProperty Name="ImageSource" ColumnName="ImageSource" />
+          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+          <ScalarProperty Name="CreePar" ColumnName="CreePar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chapitres">
+      <EntityTypeMapping TypeName="GestionCoursModel.Chapitre">
+        <MappingFragment StoreEntitySet="Chapitres">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ImageSource" ColumnName="ImageSource" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commentaires">
+      <EntityTypeMapping TypeName="GestionCoursModel.Commentaire">
+        <MappingFragment StoreEntitySet="Commentaires">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Contenu" ColumnName="Contenu" />
+          <ScalarProperty Name="CourId" ColumnName="CourId" />
+          <ScalarProperty Name="UtilisateurId" ColumnName="UtilisateurId" />
+          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+          <ScalarProperty Name="Invalid" ColumnName="Invalid" />
+          <ScalarProperty Name="RetirePar" ColumnName="RetirePar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cours">
+      <EntityTypeMapping TypeName="GestionCoursModel.Cour">
+        <MappingFragment StoreEntitySet="Cours">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="ProfId" ColumnName="ProfId" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+          <ScalarProperty Name="CreePar" ColumnName="CreePar" />
+          <ScalarProperty Name="DateModificationDerniere" ColumnName="DateModificationDerniere" />
+          <ScalarProperty Name="ModifiePar" ColumnName="ModifiePar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cours_Categories">
+      <EntityTypeMapping TypeName="GestionCoursModel.Cours_Categories">
+        <MappingFragment StoreEntitySet="Cours_Categories">
+          <ScalarProperty Name="CourId" ColumnName="CourId" />
+          <ScalarProperty Name="CategorieId" ColumnName="CategorieId" />
+          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+          <ScalarProperty Name="CreePar" ColumnName="CreePar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cours_Utilisateurs">
+      <EntityTypeMapping TypeName="GestionCoursModel.Cours_Utilisateurs">
+        <MappingFragment StoreEntitySet="Cours_Utilisateurs">
+          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
+          <ScalarProperty Name="UtilisateurId" ColumnName="UtilisateurId" />
+          <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursImages">
+      <EntityTypeMapping TypeName="GestionCoursModel.CoursImage">
+        <MappingFragment StoreEntitySet="CoursImages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="CoursId" ColumnName="CoursId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Professeurs">
+      <EntityTypeMapping TypeName="GestionCoursModel.Professeur">
+        <MappingFragment StoreEntitySet="Professeurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Descrition" ColumnName="Descrition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypesCategories">
+      <EntityTypeMapping TypeName="GestionCoursModel.TypesCategory">
+        <MappingFragment StoreEntitySet="TypesCategories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateurs">
+      <EntityTypeMapping TypeName="GestionCoursModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateurs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="UserProfileId" ColumnName="UserProfileId" />
+          <ScalarProperty Name="ImageSource" ColumnName="ImageSource" />
+          <ScalarProperty Name="Sexe" ColumnName="Sexe" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Tel" ColumnName="Tel" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

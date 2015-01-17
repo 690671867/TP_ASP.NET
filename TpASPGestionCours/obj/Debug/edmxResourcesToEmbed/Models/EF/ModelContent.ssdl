@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GestionCoursModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="GestionCoursModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="GestionCoursModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Chapitres" EntityType="GestionCoursModel.Store.Chapitres" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Commentaires" EntityType="GestionCoursModel.Store.Commentaires" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cours" EntityType="GestionCoursModel.Store.Cours" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cours_Categories" EntityType="GestionCoursModel.Store.Cours_Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cours_Utilisateurs" EntityType="GestionCoursModel.Store.Cours_Utilisateurs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CoursImages" EntityType="GestionCoursModel.Store.CoursImages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Professeurs" EntityType="GestionCoursModel.Store.Professeurs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TypesCategories" EntityType="GestionCoursModel.Store.TypesCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Utilisateurs" EntityType="GestionCoursModel.Store.Utilisateurs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="webpages_Roles" EntityType="GestionCoursModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Categorie__Types__117F9D94" Association="GestionCoursModel.Store.FK__Categorie__Types__117F9D94">
+      <End Role="TypesCategories" EntitySet="TypesCategories" />
+      <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Commentai__CourI__1273C1CD" Association="GestionCoursModel.Store.FK__Commentai__CourI__1273C1CD">
+      <End Role="Cours" EntitySet="Cours" />
+      <End Role="Commentaires" EntitySet="Commentaires" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Commentai__Utili__1367E606" Association="GestionCoursModel.Store.FK__Commentai__Utili__1367E606">
+      <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+      <End Role="Commentaires" EntitySet="Commentaires" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categories_Utilisateurs" Association="GestionCoursModel.Store.FK_Categories_Utilisateurs">
+      <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+      <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Commentaires_Utilisateurs" Association="GestionCoursModel.Store.FK_Commentaires_Utilisateurs">
+      <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+      <End Role="Commentaires" EntitySet="Commentaires" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cours_Categories_Categories" Association="GestionCoursModel.Store.FK_Cours_Categories_Categories">
+      <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+      <End Role="Cours_Categories" EntitySet="Cours_Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cours_Categories_Cours" Association="GestionCoursModel.Store.FK_Cours_Categories_Cours">
+      <End Role="Cours" EntitySet="Cours" />
+      <End Role="Cours_Categories" EntitySet="Cours_Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cours_Chapitres" Association="GestionCoursModel.Store.FK_Cours_Chapitres">
+      <End Role="Cours" EntitySet="Cours" />
+      <End Role="Chapitres" EntitySet="Chapitres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cours_Professeur" Association="GestionCoursModel.Store.FK_Cours_Professeur">
+      <End Role="Professeurs" EntitySet="Professeurs" />
+      <End Role="Cours" EntitySet="Cours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cours_Utilisateurs" Association="GestionCoursModel.Store.FK_Cours_Utilisateurs">
+      <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+      <End Role="Cours" EntitySet="Cours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cours_Utilisateurs1" Association="GestionCoursModel.Store.FK_Cours_Utilisateurs1">
+      <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+      <End Role="Cours" EntitySet="Cours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoursImages_Cours" Association="GestionCoursModel.Store.FK_CoursImages_Cours">
+      <End Role="Cours" EntitySet="Cours" />
+      <End Role="CoursImages" EntitySet="CoursImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoursUtilisateurs_Cours" Association="GestionCoursModel.Store.FK_CoursUtilisateurs_Cours">
+      <End Role="Cours" EntitySet="Cours" />
+      <End Role="Cours_Utilisateurs" EntitySet="Cours_Utilisateurs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoursUtilisateurs_Utilisateurs" Association="GestionCoursModel.Store.FK_CoursUtilisateurs_Utilisateurs">
+      <End Role="Utilisateurs" EntitySet="Utilisateurs" />
+      <End Role="Cours_Utilisateurs" EntitySet="Cours_Utilisateurs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="TypesCategorieId" Type="int" Nullable="false" />
+    <Property Name="ImageSource" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="DateCreation" Type="datetime2" Nullable="false" />
+    <Property Name="CreePar" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Chapitres">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CoursId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="ImageSource" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Commentaires">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Contenu" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="CourId" Type="int" Nullable="false" />
+    <Property Name="UtilisateurId" Type="int" Nullable="false" />
+    <Property Name="DateCreation" Type="datetime2" Nullable="false" />
+    <Property Name="Invalid" Type="bit" Nullable="false" />
+    <Property Name="RetirePar" Type="int" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="Point" Type="int" Nullable="false" />
+    <Property Name="ProfId" Type="int" Nullable="false" />
+    <Property Name="DateDebut" Type="datetime2" Nullable="false" />
+    <Property Name="DateFin" Type="datetime2" Nullable="false" />
+    <Property Name="DateCreation" Type="datetime2" Nullable="false" />
+    <Property Name="CreePar" Type="int" Nullable="false" />
+    <Property Name="DateModificationDerniere" Type="datetime2" Nullable="false" />
+    <Property Name="ModifiePar" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cours_Categories">
+    <Key>
+      <PropertyRef Name="CourId" />
+      <PropertyRef Name="CategorieId" />
+    </Key>
+    <Property Name="CourId" Type="int" Nullable="false" />
+    <Property Name="CategorieId" Type="int" Nullable="false" />
+    <Property Name="DateCreation" Type="datetime2" Nullable="false" />
+    <Property Name="CreePar" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cours_Utilisateurs">
+    <Key>
+      <PropertyRef Name="CoursId" />
+      <PropertyRef Name="UtilisateurId" />
+    </Key>
+    <Property Name="CoursId" Type="int" Nullable="false" />
+    <Property Name="UtilisateurId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoursImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CoursId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Professeurs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Prenom" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Descrition" Type="nvarchar" Nullable="false" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TypesCategories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Utilisateurs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Prenom" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UserProfileId" Type="int" Nullable="false" />
+    <Property Name="ImageSource" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sexe" Type="bit" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="webpages_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <Association Name="FK__Categorie__Types__117F9D94">
+    <End Role="TypesCategories" Type="GestionCoursModel.Store.TypesCategories" Multiplicity="1" />
+    <End Role="Categories" Type="GestionCoursModel.Store.Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypesCategories">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categories">
+        <PropertyRef Name="TypesCategorieId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Commentai__CourI__1273C1CD">
+    <End Role="Cours" Type="GestionCoursModel.Store.Cours" Multiplicity="1" />
+    <End Role="Commentaires" Type="GestionCoursModel.Store.Commentaires" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Commentaires">
+        <PropertyRef Name="CourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Commentai__Utili__1367E606">
+    <End Role="Utilisateurs" Type="GestionCoursModel.Store.Utilisateurs" Multiplicity="1" />
+    <End Role="Commentaires" Type="GestionCoursModel.Store.Commentaires" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateurs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Commentaires">
+        <PropertyRef Name="UtilisateurId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categories_Utilisateurs">
+    <End Role="Utilisateurs" Type="GestionCoursModel.Store.Utilisateurs" Multiplicity="1" />
+    <End Role="Categories" Type="GestionCoursModel.Store.Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateurs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categories">
+        <PropertyRef Name="CreePar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Commentaires_Utilisateurs">
+    <End Role="Utilisateurs" Type="GestionCoursModel.Store.Utilisateurs" Multiplicity="0..1" />
+    <End Role="Commentaires" Type="GestionCoursModel.Store.Commentaires" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateurs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Commentaires">
+        <PropertyRef Name="RetirePar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cours_Categories_Categories">
+    <End Role="Utilisateurs" Type="GestionCoursModel.Store.Utilisateurs" Multiplicity="1" />
+    <End Role="Cours_Categories" Type="GestionCoursModel.Store.Cours_Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateurs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours_Categories">
+        <PropertyRef Name="CreePar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cours_Categories_Cours">
+    <End Role="Cours" Type="GestionCoursModel.Store.Cours" Multiplicity="1" />
+    <End Role="Cours_Categories" Type="GestionCoursModel.Store.Cours_Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours_Categories">
+        <PropertyRef Name="CourId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cours_Chapitres">
+    <End Role="Cours" Type="GestionCoursModel.Store.Cours" Multiplicity="1" />
+    <End Role="Chapitres" Type="GestionCoursModel.Store.Chapitres" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Chapitres">
+        <PropertyRef Name="CoursId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cours_Professeur">
+    <End Role="Professeurs" Type="GestionCoursModel.Store.Professeurs" Multiplicity="1" />
+    <End Role="Cours" Type="GestionCoursModel.Store.Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeurs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="ProfId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cours_Utilisateurs">
+    <End Role="Utilisateurs" Type="GestionCoursModel.Store.Utilisateurs" Multiplicity="1" />
+    <End Role="Cours" Type="GestionCoursModel.Store.Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateurs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="CreePar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cours_Utilisateurs1">
+    <End Role="Utilisateurs" Type="GestionCoursModel.Store.Utilisateurs" Multiplicity="1" />
+    <End Role="Cours" Type="GestionCoursModel.Store.Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateurs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="ModifiePar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoursImages_Cours">
+    <End Role="Cours" Type="GestionCoursModel.Store.Cours" Multiplicity="1" />
+    <End Role="CoursImages" Type="GestionCoursModel.Store.CoursImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursImages">
+        <PropertyRef Name="CoursId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoursUtilisateurs_Cours">
+    <End Role="Cours" Type="GestionCoursModel.Store.Cours" Multiplicity="1" />
+    <End Role="Cours_Utilisateurs" Type="GestionCoursModel.Store.Cours_Utilisateurs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours_Utilisateurs">
+        <PropertyRef Name="CoursId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoursUtilisateurs_Utilisateurs">
+    <End Role="Utilisateurs" Type="GestionCoursModel.Store.Utilisateurs" Multiplicity="1" />
+    <End Role="Cours_Utilisateurs" Type="GestionCoursModel.Store.Cours_Utilisateurs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateurs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours_Utilisateurs">
+        <PropertyRef Name="UtilisateurId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,72 @@
+﻿@model TpASPGestionCours.Models.RegisterModel
+@{
+    ViewBag.Title = "S'inscrire";
+    
+    
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>Créez un nouveau compte.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    
+    
+    <fieldset>
+        <legend>Formulaire d’inscription</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.UserName)
+                @Html.TextBoxFor(m => m.UserName)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword)
+            </li>
+            <li>
+                @Html.LabelFor(m => m.ObjUser.Nom)
+                @Html.TextBoxFor(m => m.ObjUser.Nom)
+                @Html.ValidationMessageFor(m => m.ObjUser.Nom)
+                </li>
+                 <li>
+                @Html.LabelFor(m => m.ObjUser.Prenom)
+                @Html.TextBoxFor(m => m.ObjUser.Prenom)
+                @Html.ValidationMessageFor(m => m.ObjUser.Prenom)
+            
+            </li>
+             <li>
+                @Html.LabelFor(m => m.ObjUser.Age)
+                @Html.TextBoxFor(m => m.ObjUser.Age)
+                @Html.ValidationMessageFor(m => m.ObjUser.Age)
+            
+            </li>
+             <li>
+                @Html.LabelFor(m => m.ObjUser.Sexe)
+                @Html.TextBoxFor(m => m.ObjUser.Sexe)
+                @Html.ValidationMessageFor(m => m.ObjUser.Sexe)
+            
+            </li>
+             <li>
+                @Html.LabelFor(m => m.ObjUser.Tel)
+                @Html.TextBoxFor(m => m.ObjUser.Tel)
+                @Html.ValidationMessageFor(m => m.ObjUser.Tel)
+            
+            </li>
+            
+            @* Mettre tous les champs de utilisateur *@
+        </ol>
+        <input type="submit" value="S'inscrire" />
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

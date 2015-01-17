@@ -1,0 +1,44 @@
+﻿@using TpASPGestionCours.Models.EF
+@model List<Utilisateur>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    String msg = (String)TempData["FormMessage"];
+}
+
+<h2>Index</h2>
+
+@msg
+<br />
+@Html.ActionLink("Ajouter un Utilisateur", "Detail")
+<br />
+<table>
+
+    <tr><td>Nom</td>
+        <td>Prenom</td>
+        <td>Ages</td>
+        <td>Sexe</td>
+        <td>Email</td>
+        <td>Tel</td>
+        <td>Pseudo</td>
+        <td>profile</td>
+        <td>Actions</td>
+    </tr>
+
+@foreach (Utilisateur item in Model)
+{
+    <tr>
+        <td>@item.Nom</td>
+        <td>@item.Prenom</td>
+        <td>@item.Age</td>
+        <td>@item.Sexe</td>
+        <td>@item.Email</td>
+        <td>@item.Tel</td>
+        <td>@item.Pseudo</td>
+        <td>@item.UserProfileId</td>
+        
+        <td><a href="@Url.Action("Detail", new { id = item.Id })">Editer</a></td>
+    </tr>
+}
+
+</table>

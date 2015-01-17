@@ -1,0 +1,53 @@
+﻿@using TpASPGestionCours.Models.EF
+@model Utilisateur
+
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutTpGestionCours.cshtml";
+}
+
+<h2>Detail</h2>
+
+@using (Html.BeginForm("Detail", "Utilisateur", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)<br />
+    @Html.HiddenFor(m => m.UserProfileId)
+ 
+    @Html.ValidationSummary(true, "voici les erreurs")<br />
+   
+    @Html.Label("prenom:")
+    @Html.TextBoxFor(m => m.Prenom)
+    @Html.ValidationMessageFor(m => m.Prenom) <br />
+    
+    @Html.Label("Nom:")
+    @Html.TextBoxFor(m => m.Nom)<br />
+    @Html.ValidationMessageFor(m => m.Nom) <br />
+    
+    @Html.Label("Pseudo:")
+    @Html.TextBoxFor(m => m.Pseudo)
+    @Html.ValidationMessageFor(m => m.Pseudo) <br />
+    
+     @Html.Label("Sexe:")
+    @Html.TextBoxFor(m => m.Sexe)
+    @Html.ValidationMessageFor(m => m.Sexe) <br />
+
+     @Html.Label("Telephone:")
+    @Html.TextBoxFor(m => m.Tel)
+    @Html.ValidationMessageFor(m => m.Tel) <br />
+
+     @Html.Label("Email:")
+    @Html.TextBoxFor(m => m.Email)
+    @Html.ValidationMessageFor(m => m.Email) <br />
+    
+      @Html.Label("Age:")
+    @Html.TextBoxFor(m => m.Age)
+    @Html.ValidationMessageFor(m => m.Age) <br />
+
+   
+    
+
+    <button type="submit">Soumettre</button> 
+    <a href="@Url.Action("Delete", new { id = Model.Id })">Supprimer</a>
+
+}

@@ -1,0 +1,139 @@
+﻿<<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="Font/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/CSS/css/bootstrap.min.css")
+
+    @Styles.Render("~/CSS/css/modern-business.css")
+   
+      @*  @Styles.Render("~/Content/css")*@
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="Index" href="index.html">ISI</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
+                    <li>@Html.ActionLink("À propos de", "Index", "Professeur")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Service", "Service", "Home")</li>
+                    <li>@Html.ActionLink("Programme", "Index", "Home")</li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+    </nav>
+
+
+    <header>
+        @*<div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title">@Html.ActionLink("votre logo ici", "Index", "Home")</p>
+                </div>*@
+        <div class="float-right">
+            <section id="login">
+                @Html.Partial("_LoginPartial")
+            </section>
+        </div>
+    </header>
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                @*   <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>*@
+                <img src="images/images.jpg">
+                <div class="carousel-caption">
+                    <h2>NOS ETUDIANTS</h2>
+
+                </div>
+            </div>
+            <div class="item">
+                @* <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>*@
+                <img src="images/images3.jpg">
+                <div class="carousel-caption">
+                    <h2>REMISE DES DIPLOMES</h2>
+                </div>
+            </div>
+            <div class="item">
+                @* <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>*@
+                <img src="images/images2.jpg">
+                <div class="carousel-caption">
+                    <h2>Nos DIPLOMES</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - Mon application ASP.NET MVC</p>
+            </div>
+        </div>
+    </footer>
+
+     @Scripts.Render("~/JS/js/jquery.js")
+     @Scripts.Render("~/JS/js/bootstrap.min.js")
+    @RenderSection("scripts", required: false)
+  @*  <script src="js/jquery.js"></script>*@
+
+    <!-- Bootstrap Core JavaScript -->
+   @* <script src="js/bootstrap.min.js"></script>*@
+    
+    <!-- Script to Activate the Carousel -->
+  
+    <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+    </script>
+</body>
+</html>
+

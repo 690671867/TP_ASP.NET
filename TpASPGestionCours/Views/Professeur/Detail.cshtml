@@ -1,0 +1,29 @@
+﻿@model TpASPGestionCours.Models.EF.Professeur
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutTpGestionCours.cshtml";
+}
+
+<h2>ProfesseurVue</h2>
+
+@using (Html.BeginForm("Detail", "Professeur", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Id)<br />
+ 
+    @Html.ValidationSummary(true, "voici les erreurs")<br />
+   
+    @Html.Label("prenom:")
+    @Html.TextBoxFor(m => m.Prenom)
+    @Html.ValidationMessageFor(m => m.Prenom) <br />
+    @Html.Label("Nom:")
+    @Html.TextBoxFor(m => m.Nom)<br />
+    @Html.ValidationMessageFor(m => m.Nom) <br />
+    @Html.Label("Description:")
+    @Html.TextBoxFor(m => m.Descrition)
+    @Html.ValidationMessageFor(m => m.Descrition) <br />
+
+    <button type="submit">Soumettre</button> 
+    <a href="@Url.Action("Delete", new { id = Model.Id })">Supprimer</a>
+
+}
